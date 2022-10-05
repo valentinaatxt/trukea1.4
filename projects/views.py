@@ -6,4 +6,7 @@ def trukea(request):
 
 def IniciarSesion(request):
     return render(request,'iniciar_sesion.html')
+
+def CrearCuenta(request):
+    return render(request,'crear_cuenta.html')
 # Create your views here.
