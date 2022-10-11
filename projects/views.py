@@ -60,6 +60,9 @@ def EditarMoneda(request):
 
 def AdminEditarMoneda(request):
     return render(request,'admin_editar_moneda.html')
+
+def AgregarMonedaPlataforma(request):
+    return render(request,'agregar_moneda_plataforma.html')
 # Create your views here.
 def projects(request):
     proyectos=models.Proyecto.objects.all()
