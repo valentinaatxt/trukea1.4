@@ -9,4 +9,5 @@ urlpatterns = [
     path('AgregarDestinatario/', views.AgregarDestinatario,name="AgregarDestinatario"),
     path('ClienteTransaccion/', views.ClienteTransaccion,name="clienteTransaccion"),
     path('EnviarDinero/', views.EnviarDinero,name="EnviarDinero"),
+    path('AgregarDinero/', views.AgregarDinero,name="AgregarDinero"),
 ]

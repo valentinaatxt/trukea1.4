@@ -39,6 +39,9 @@ def ClienteTransaccion(request):
 
 def EnviarDinero(request):
     return render(request,'enviar_dinero.html')
+
+def AgregarDinero(request):
+    return render(request,'agregar_dinero.html')
 # Create your views here.
 def projects(request):
     proyectos=models.Proyecto.objects.all()
