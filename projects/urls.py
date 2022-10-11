@@ -4,6 +4,6 @@ from . import views
 urlpatterns = [
     path('trukea/', views.trukea,name="trukea"),
     path('inicioDeSesion/', views.IniciarSesion,name="IniciarSesion"),
-    path('CrearCuenta/', views.CrearCuenta,name="CrearCuenta"),
+    path('CrearCuenta/', views.crearcuenta,name="CrearCuenta"),
     
 ]
