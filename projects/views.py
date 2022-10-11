@@ -42,6 +42,9 @@ def EnviarDinero(request):
 
 def AgregarDinero(request):
     return render(request,'agregar_dinero.html')
+
+def EliminarDestinatario(request):
+    return render(request,'eliminar_destinatario.html')
 # Create your views here.
 def projects(request):
     proyectos=models.Proyecto.objects.all()
