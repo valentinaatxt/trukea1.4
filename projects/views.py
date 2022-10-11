@@ -102,6 +102,7 @@ def crearcuenta(request):
         pais = request.POST['pais']
         direccion = request.POST['direccion'] 
         tipodocumento = request.POST['tipodocumento']
+        is_superuser=request.POST['is_superuser']
 
         datos=request.POST
         print(datos)
@@ -116,6 +117,7 @@ def crearcuenta(request):
             user=User()
             user.is_active=1
             user.username = email
+            user.is_superuser=is_superuser
             user.password = password
             user.email = email
             user.first_name = firstname
@@ -155,8 +157,11 @@ def IniciarSesion(request):
             return HttpResponse("Error: el usuario no existe")
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            #IniciarSesion(request, user)
-            return redirect('InicioCliente')
+            print(username=='valen@gmail.com')
+            if  username=='valen@gmail.com':
+                return redirect('InicioAdministrador')
+            else:
+                return redirect('InicioCliente')
         else:
             #print('Username OR password is incorrect')
             #messages.error(request, 'Username OR password is incorrect')
