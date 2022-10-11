@@ -13,5 +13,6 @@ urlpatterns = [
     path('EliminarDestinatario/', views.EliminarDestinatario,name="EliminarDestinatario"),
     path('InicioAdministrador/', views.InicioAdministrador,name="InicioAdministrador"),
     path('ConsultarListaTransacciones/', views.ConsultarListaTransacciones,name="ConsultarListaTransacciones"),
+    path('EditarMoneda/', views.EditarMoneda,name="EditarMoneda"),
 ]
 

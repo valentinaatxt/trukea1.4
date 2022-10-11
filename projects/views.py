@@ -54,6 +54,9 @@ def HabilitarDeshabilitarMoneda(request):
 
 def ConsultarListaTransacciones(request):
     return render(request,'consultar_lista_transacciones.html')
+
+def EditarMoneda(request):
+    return render(request,'editar_moneda.html')
 # Create your views here.
 def projects(request):
     proyectos=models.Proyecto.objects.all()
