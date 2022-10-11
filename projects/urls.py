@@ -16,5 +16,6 @@ urlpatterns = [
     path('EditarMoneda/', views.EditarMoneda,name="EditarMoneda"),
     path('AdminEditarMoneda/', views.AdminEditarMoneda,name="AdminEditarMoneda"),
     path('AgregarMonedaPlataforma/', views.AgregarMonedaPlataforma,name="AgregarMonedaPlataforma"),
+    path('ConsultarListaMonedas/', views.ConsultarListaMonedas,name="ConsultarListaMonedas"),
 ]
 
