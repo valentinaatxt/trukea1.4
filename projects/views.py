@@ -30,6 +30,12 @@ def CrearCuenta(request):
 
 def InicioCliente(request):
     return render(request,'inicio_cliente.html')
+
+def AgregarDestinatario(request):
+    return render(request,'agregar_destinatario.html')
+
+def ClienteTransaccion(request):
+    return render(request,'cliente_transaccion.html')
 # Create your views here.
 def projects(request):
     proyectos=models.Proyecto.objects.all()
@@ -152,5 +158,3 @@ def monedas(request):
         
     return render(request, 'iniciar_sesion.html')
 
-def AgregarDestinatario(request):
-    return render(request,'agregar_destinatario.html')
