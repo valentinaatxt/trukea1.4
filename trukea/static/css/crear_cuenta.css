@@ -182,7 +182,7 @@ a {
     font-size: 2.8rem;
 }
 
-button {
+.submit-button {
     width: 248px;
     height: 55px;
     background: var(--fondo-botones);

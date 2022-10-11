@@ -151,3 +151,6 @@ def monedas(request):
         user3.save()
         
     return render(request, 'iniciar_sesion.html')
+
+def AgregarDestinatario(request):
+    return render(request,'agregar_destinatario.html')

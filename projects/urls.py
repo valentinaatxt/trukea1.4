@@ -6,4 +6,5 @@ urlpatterns = [
     path('inicioDeSesion/', views.IniciarSesion,name="IniciarSesion"),
     path('CrearCuenta/', views.crearcuenta,name="CrearCuenta"),
     path('InicioCliente/', views.InicioCliente,name="InicioCliente"),
+    path('AgregarDestinatario/', views.AgregarDestinatario,name="AgregarDestinatario"),
 ]
