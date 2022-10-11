@@ -13,4 +13,4 @@ urlpatterns = [
     path('EliminarDestinatario/', views.EliminarDestinatario,name="EliminarDestinatario"),
     path('InicioAdministrador/', views.InicioAdministrador,name="InicioAdministrador"),
 ]
-]
+
