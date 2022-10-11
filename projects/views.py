@@ -45,6 +45,9 @@ def AgregarDinero(request):
 
 def EliminarDestinatario(request):
     return render(request,'eliminar_destinatario.html')
+
+def InicioAdministrador(request):
+    return render(request,'inicio_administrador.html')
 # Create your views here.
 def projects(request):
     proyectos=models.Proyecto.objects.all()
