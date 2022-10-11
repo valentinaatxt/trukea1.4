@@ -27,6 +27,9 @@ def IniciarSesion(request):
 
 def CrearCuenta(request):
     return render(request,'crear_cuenta.html')
+
+def InicioCliente(request):
+    return render(request,'inicio_cliente.html')
 # Create your views here.
 def projects(request):
     proyectos=models.Proyecto.objects.all()

@@ -1,0 +1,49 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/inicio_cliente.css' %}">
+    <title>Inicio</title>
+    <link rel="icon" href="{% static 'imgs/logo-solo.ico' %}">
+</head>
+
+<body>
+    <header>
+        <picture></picture>
+        <span class="span-inicio">INICIO</span>
+        <span class="span-cliente">Cliente</span>
+        <picture></picture>
+    </header>
+
+    <nav>
+        <a href="/" class="ancle-inicio"></a>
+        <a href="/" class="ancle-enviar_dinero"></a>
+        <a href="/" class="ancle-consulta_lista_transacciones"></a>
+        <a href="/" class="ancle-consulta_transaccion"></a>
+        <a href="/" class="ancle-eliminar_destinatario"></a>
+        <a href="/" class="ancle-agregar_destinatario"></a>
+        <a href="/" class="ancle-agregar_dinero"></a>
+    </nav>
+
+    <main>
+        <section class="section-transacciones">
+            <p class="p-transacciones">Transacciones recientes</p>
+        </section>
+        <section class="section-mensajes section-derecha">
+            <p class="p-mensajes">Mensajes</p>
+            <span class="span-numero">5</span>
+        </section>
+        <section class="section-saldo section-derecha">
+            <p class="p-mensajes">Saldo</p>
+        </section>
+    </main>
+
+
+</body>
+
+</html>
