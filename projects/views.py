@@ -48,6 +48,9 @@ def EliminarDestinatario(request):
 
 def InicioAdministrador(request):
     return render(request,'inicio_administrador.html')
+
+def HabilitarDeshabilitarMoneda(request):
+    return render(request,'habilitar_deshabilitar_moneda.html')
 # Create your views here.
 def projects(request):
     proyectos=models.Proyecto.objects.all()
