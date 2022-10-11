@@ -51,6 +51,9 @@ def InicioAdministrador(request):
 
 def HabilitarDeshabilitarMoneda(request):
     return render(request,'habilitar_deshabilitar_moneda.html')
+
+def ConsultarListaTransacciones(request):
+    return render(request,'consultar_lista_transacciones.html')
 # Create your views here.
 def projects(request):
     proyectos=models.Proyecto.objects.all()
