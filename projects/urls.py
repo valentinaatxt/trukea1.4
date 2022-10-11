@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     path('trukea/', views.trukea,name="trukea"),
-    path('inicioDeSesion/', views.IniciarSesion,name="IniciarSesion"),
+    path('iniciar_sesion/', views.IniciarSesion,name="iniciar_sesion"),
     path('CrearCuenta/', views.crearcuenta,name="CrearCuenta"),
     path('InicioCliente/', views.InicioCliente,name="InicioCliente"),
     path('AgregarDestinatario/', views.AgregarDestinatario,name="AgregarDestinatario"),
@@ -17,6 +17,6 @@ urlpatterns = [
     path('AdminEditarMoneda/', views.AdminEditarMoneda,name="AdminEditarMoneda"),
     path('AgregarMonedaPlataforma/', views.AgregarMonedaPlataforma,name="AgregarMonedaPlataforma"),
     path('ConsultarListaMonedas/', views.ConsultarListaMonedas,name="ConsultarListaMonedas"),
-    path('ClienteListaTransacciones/', views.ClienteListaTransacciones,name="ClienteListaTransacciones"),
+    path('ClienteListaTransacciones/', views.ClienteLIstaTransacciones,name="ClienteListaTransacciones"),
 ]
 

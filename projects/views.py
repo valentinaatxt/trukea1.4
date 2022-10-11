@@ -22,8 +22,6 @@ from django.db.models import F
 def trukea(request):
     return render(request,'index.html')
 
-def IniciarSesion(request):
-    return render(request,'iniciar_sesion.html')
 
 def CrearCuenta(request):
     return render(request,'crear_cuenta.html')
@@ -67,8 +65,11 @@ def AgregarMonedaPlataforma(request):
 def ConsultarListaMonedas(request):
     return render(request,'consultar_lista_monedas.html')
 
-def ConsultarListaMonedas(request):
+def ClienteLIstaTransacciones(request):
     return render(request,'cliente_lista_transacciones.html')
+
+def ConsultarListaMonedas(request):
+    return render(request,'cliente_lista_monedas.html')
 # Create your views here.
 def projects(request):
     proyectos=models.Proyecto.objects.all()
@@ -114,8 +115,8 @@ def crearcuenta(request):
         #crea el usuario
             user=User()
             user.is_active=1
-            user.username = username
-            user.set_password(password)
+            user.username = email
+            user.password = password
             user.email = email
             user.first_name = firstname
             user.last_name = lastname
@@ -137,13 +138,13 @@ def crearcuenta(request):
     success_url = reverse_lazy("login")
     template_name = "crear_cuenta.html"
 
-def loginUser(request):
+def IniciarSesion(request):
 
     if request.user.is_authenticated:
         return('projects')
 
     if request.method == 'POST':
-        username =request.POST['username']
+        username =request.POST['email']
         password =request.POST['password']
 
         try:
@@ -153,10 +154,9 @@ def loginUser(request):
             #messages.error(request, 'Username does not exist')
             return HttpResponse("Error: el usuario no existe")
         user = authenticate(request, username=username, password=password)
-
         if user is not None:
-            login(request, user)
-            return redirect('projects')
+            #IniciarSesion(request, user)
+            return redirect('InicioCliente')
         else:
             #print('Username OR password is incorrect')
             #messages.error(request, 'Username OR password is incorrect')
