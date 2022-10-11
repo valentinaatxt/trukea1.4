@@ -1,0 +1,67 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Serif&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'css/enviar_dinero.css' %}">
+    <title>Enviar dinero</title>
+    <link rel="icon" href="{% static 'imgs/logo-solo.ico' %}">
+</head>
+
+<body>
+    <header>
+        <picture></picture>
+        <span class="span-inicio span-header">ENVIAR DINERO</span>
+        <span class="span-cliente span-header">Cliente</span>
+        <picture></picture>
+    </header>
+
+    <nav>
+        <a href="/" class="ancle-inicio"></a>
+        <a href="/" class="ancle-enviar_dinero"></a>
+        <a href="/" class="ancle-consulta_lista_transacciones"></a>
+        <a href="/" class="ancle-consulta_transaccion"></a>
+        <a href="/" class="ancle-eliminar_destinatario"></a>
+        <a href="/" class="ancle-agregar_destinatario"></a>
+        <a href="/" class="ancle-agregar_dinero"></a>
+    </nav>
+
+    <main>
+        <section>
+            <p>Enviar dinero</p>
+            <form action="">
+
+                <label for="destinatario" class="label-izquierda label-destinatario">Destinatario</label>
+                <input list="destinatarios" id="destinatario" class="input-izquierda" name="enviar-destinatario" required>
+                <datalist id="destinatarios">
+                    <option value="Ejemplo1">Usuario 1</option>
+                    <option value="Ejemplo2">Usuario 2</option>
+                    <option value="Ejemplo3">Usuario 3</option>
+                </datalist>
+
+                <label for="monto_local" class="label-centro label-monto_local">Monto moneda local</label>
+                <input type="number" id="monto_local" name="enviar-monto_local" class="input-centro" placeholder="527800" required>
+
+                <label for="fecha" class="label-derecha label-fecha">Fecha</label>
+                <input type="date" id="fecha" name="enviar-fecha" class="input-derecha" placeholder="Bogotá" required>
+
+                <button type="submit">
+                    Continuar
+                </button>
+
+            </form>
+
+        </section>
+
+
+
+    </main>
+
+
+</body>
+
+</html>

@@ -8,4 +8,5 @@ urlpatterns = [
     path('InicioCliente/', views.InicioCliente,name="InicioCliente"),
     path('AgregarDestinatario/', views.AgregarDestinatario,name="AgregarDestinatario"),
     path('ClienteTransaccion/', views.ClienteTransaccion,name="clienteTransaccion"),
+    path('EnviarDinero/', views.EnviarDinero,name="EnviarDinero"),
 ]
