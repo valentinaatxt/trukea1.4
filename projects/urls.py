@@ -18,5 +18,6 @@ urlpatterns = [
     path('AgregarMonedaPlataforma/', views.AgregarMonedaPlataforma,name="AgregarMonedaPlataforma"),
     path('ConsultarListaMonedas/', views.ConsultarListaMonedas,name="ConsultarListaMonedas"),
     path('ClienteListaTransacciones/', views.ClienteLIstaTransacciones,name="ClienteListaTransacciones"),
+    #path('ConsultarSaldo/', views.ConsultarSaldo,name="ConsultarSaldo"),
 ]
 

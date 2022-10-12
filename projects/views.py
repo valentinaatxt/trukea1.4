@@ -27,7 +27,12 @@ def CrearCuenta(request):
     return render(request,'crear_cuenta.html')
 
 def InicioCliente(request):
+    template='inicio_cliente.html'
+    correo=Usuario_registrado.objects.filter(usuario=request.user.id).values()
+    print(correo)
     return render(request,'inicio_cliente.html')
+
+
 
 def AgregarDestinatario(request):
     if request.method == 'POST':    
@@ -182,12 +187,13 @@ def crearcuenta(request):
 
 def IniciarSesion(request):
 
-    if request.user.is_authenticated:
-        return('projects')
+    #if request.user.is_authenticated:
+        #return('projects')
 
     if request.method == 'POST':
         username =request.POST['email']
         password =request.POST['password']
+        print(request.POST)
 
         try:
             user= User.objects.get(username=username)
