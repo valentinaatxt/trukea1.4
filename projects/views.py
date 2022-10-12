@@ -35,18 +35,18 @@ def AgregarDestinatario(request):
         email = request.POST['email']
         documento = request.POST['documento']
         tipodocumento = request.POST['tipodocumento']
-        name=request.POST['first_name']
-        print(name)
         user=models.Destinatarios()
         user.email=email
         user.documento=documento
         user.tipodocumento=tipodocumento
         user.save()
-        #if User.objects.filter(username=username).exists():
-           # user2= User.objects.get(firstname=firstname)
-            #print(firstname)
-        #else:
-            #return HttpResponse("Error:El usuario no existe")
+        if User.objects.filter(username=username).exists():
+           user2= User.objects.filter(username=email).values_list('first_name','last_name')
+           firstname=user2[0][0]
+           lastname=user2[0][1]
+           return HttpResponse("nombre:"+firstname+"apellido:"+lastname)
+        else:
+            return HttpResponse("Error:El usuario no existe")
         
     return render(request,'agregar_destinatario.html')
 
@@ -78,7 +78,31 @@ def AdminEditarMoneda(request):
     return render(request,'admin_editar_moneda.html')
 
 def AgregarMonedaPlataforma(request):
+    if request.method == 'POST':
+        username =request.POST['email']
+        password =request.POST['password']
+
+        try:
+            user= User.objects.get(username=username)
+        except:
+            #print('Username does not exist')
+            #messages.error(request, 'Username does not exist')
+            return HttpResponse("Error: el usuario no existe")
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            print(username=='valen@gmail.com')
+            if  username=='valen@gmail.com':
+                return redirect('InicioAdministrador')
+            else:
+                return redirect('InicioCliente')
+        else:
+            #print('Username OR password is incorrect')
+            #messages.error(request, 'Username OR password is incorrect')
+            return HttpResponse("Error: Usuario o contraseña incorrecta")
+            #success_message = "Username OR password"
+    
     return render(request,'agregar_moneda_plataforma.html')
+
 
 def ConsultarListaMonedas(request):
     return render(request,'consultar_lista_monedas.html')
@@ -120,8 +144,7 @@ def crearcuenta(request):
         pais = request.POST['pais']
         direccion = request.POST['direccion'] 
         tipodocumento = request.POST['tipodocumento']
-        is_superuser=request.POST['is_superuser']
-
+        
         datos=request.POST
         print(datos)
 
@@ -135,7 +158,6 @@ def crearcuenta(request):
             user=User()
             user.is_active=1
             user.username = email
-            user.is_superuser=is_superuser
             user.password = password
             user.email = email
             user.first_name = firstname

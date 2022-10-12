@@ -46,7 +46,7 @@ class Usuario_registrado(models.Model):
         primary_key=True,
     )
     #usuario.id = models.Model.ForeignKey(User, on_delete=models.CASCADE)
-    documento = models.BigIntegerField
+    documento = models.BigIntegerField()
     direccion=models.CharField(max_length=200)
     email=User.email, models.ForeignKey(transaccion,on_delete=models.CASCADE)
     email2=User.email, models.ForeignKey(Destinatarios,on_delete=models.CASCADE)
@@ -55,7 +55,8 @@ class Usuario_registrado(models.Model):
     ciudad=models.CharField(max_length=45)
     tipodocumento=models.CharField(max_length=45)
     fechaexpedicion=models.DateField(max_length=20)
-    celular=models.BigIntegerField
+    dinero=models.DecimalField(decimal_places=3,max_digits=10,default=0)
+    celular=models.BigIntegerField()
     def __str__(self):
         return "%s the user_registered" % self.documento
 
