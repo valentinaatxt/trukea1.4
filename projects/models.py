@@ -33,6 +33,12 @@ class transaccion(models.Model):
     def __str__(self):
         return "%s the user_registered" % self.monto
 
+class Destinatarios(models.Model):
+    documento = models.BigIntegerField
+    tipodocumento=models.CharField(max_length=200,default='cc')
+    email=models.CharField(max_length=200, primary_key=True)
+    def __str__(self):
+        return "%s the user_registered" % self.documento
 class Usuario_registrado(models.Model):
     usuario = models.OneToOneField(
         User,
@@ -43,6 +49,7 @@ class Usuario_registrado(models.Model):
     documento = models.BigIntegerField
     direccion=models.CharField(max_length=200)
     email=User.email, models.ForeignKey(transaccion,on_delete=models.CASCADE)
+    email2=User.email, models.ForeignKey(Destinatarios,on_delete=models.CASCADE)
     monedas =models.ForeignKey(monedas,on_delete=models.CASCADE, null=True)
     pais=models.CharField(max_length=45)
     ciudad=models.CharField(max_length=45)
@@ -51,6 +58,8 @@ class Usuario_registrado(models.Model):
     celular=models.BigIntegerField
     def __str__(self):
         return "%s the user_registered" % self.documento
+
+
 
 
 

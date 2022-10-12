@@ -30,6 +30,24 @@ def InicioCliente(request):
     return render(request,'inicio_cliente.html')
 
 def AgregarDestinatario(request):
+    if request.method == 'POST':    
+        username = request.POST['email']
+        email = request.POST['email']
+        documento = request.POST['documento']
+        tipodocumento = request.POST['tipodocumento']
+        name=request.POST['first_name']
+        print(name)
+        user=models.Destinatarios()
+        user.email=email
+        user.documento=documento
+        user.tipodocumento=tipodocumento
+        user.save()
+        #if User.objects.filter(username=username).exists():
+           # user2= User.objects.get(firstname=firstname)
+            #print(firstname)
+        #else:
+            #return HttpResponse("Error:El usuario no existe")
+        
     return render(request,'agregar_destinatario.html')
 
 def ClienteTransaccion(request):

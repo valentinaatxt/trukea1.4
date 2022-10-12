@@ -34,21 +34,21 @@
     <main>
         <section>
             <p>Agregar destinatario</p>
-            <form action="">
-
+            <form method="POST">
+                {% csrf_token %}
                 <label for="email-destinatario" class="label-izquierda label-monto_local">Email</label>
-                <input type="email" id="email-destinatario" name="email-destinatario" class="input-izquierda" placeholder="usuario@example.com" required>
+                <input type="email" id="email-destinatario" name="email" class="input-izquierda" placeholder="usuario@example.com" required>
 
-                <label for="tipo-documento" class="label-centro label-destinatario">Tipo de documento</label>
-                <input list="tipos-documento" id="tipo-documento" class="input-centro" name="enviar-destinatario" required>
-                <datalist id="tipos-documento">
+                <label for="tipdocumento" class="label-centro label-destinatario">Tipo de documento</label>
+                <input list="tipodocumento" id="tipodocumento" class="input-centro" name="tipodocumento" required>
+                <datalist id="tipodocumento">
                     <option value="CC">Cédula de Ciudadanía</option>
                     <option value="CE">Cédula de Extranjería</option>
                     <option value="PS">Pasaporte</option>
                 </datalist>
 
                 <label for="numero-documento" class="label-derecha label-fecha">Número de documento</label>
-                <input type="number" id="fecha" name="enviar-fecha" class="input-derecha" placeholder="1111111111" required>
+                <input type="number" id="fecha" name="documento" class="input-derecha" placeholder="1111111111" required>
 
                 <input type="submit" value="agregar" class="submit-button"/>
 
