@@ -18,6 +18,7 @@ from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.views import generic
 from django.db.models import F
+from django.contrib.auth.hashers import make_password
 
 def trukea(request):
     return render(request,'index.html')
@@ -28,9 +29,9 @@ def CrearCuenta(request):
 
 def InicioCliente(request):
     template='inicio_cliente.html'
-    correo=Usuario_registrado.objects.filter(usuario=request.user.id).values()
-    print(correo)
-    return render(request,'inicio_cliente.html')
+    print(request.user.id)
+    user_data=models.Usuario_registrado.objects.get(usuario=request.user.id)
+    return render(request,'inicio_cliente.html',{'user_data':user_data})
 
 
 
@@ -93,8 +94,8 @@ def AgregarMonedaPlataforma(request):
             #print('Username does not exist')
             #messages.error(request, 'Username does not exist')
             return HttpResponse("Error: el usuario no existe")
-        user = authenticate(request, username=username, password=password)
-        if user is not None:
+        a = authenticate(request, username=request.POST['email'], password=request.POST['password'])
+        if a is not None:
             print(username=='valen@gmail.com')
             if  username=='valen@gmail.com':
                 return redirect('InicioAdministrador')
@@ -137,7 +138,7 @@ def project(request):
 def crearcuenta(request):
     if request.method == 'POST':    
         username = request.POST['email']
-        password = request.POST['password']
+        password = make_password(request.POST['password'])
         email = request.POST['email']
         firstname = request.POST['firstname']
         lastname = request.POST['lastname']
@@ -203,7 +204,7 @@ def IniciarSesion(request):
             return HttpResponse("Error: el usuario no existe")
         user = authenticate(request, username=username, password=password)
         if user is not None:
-            print(username=='valen@gmail.com')
+            login(request, user)
             if  username=='valen@gmail.com':
                 return redirect('InicioAdministrador')
             else:
