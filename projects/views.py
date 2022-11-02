@@ -84,30 +84,24 @@ def AdminEditarMoneda(request):
     return render(request,'admin_editar_moneda.html')
 
 def AgregarMonedaPlataforma(request):
-    if request.method == 'POST':
-        username =request.POST['email']
-        password =request.POST['password']
 
-        try:
-            user= User.objects.get(username=username)
-        except:
-            #print('Username does not exist')
-            #messages.error(request, 'Username does not exist')
-            return HttpResponse("Error: el usuario no existe")
-        a = authenticate(request, username=request.POST['email'], password=request.POST['password'])
-        if a is not None:
-            print(username=='valen@gmail.com')
-            if  username=='valen@gmail.com':
-                return redirect('InicioAdministrador')
-            else:
-                return redirect('InicioCliente')
-        else:
-            #print('Username OR password is incorrect')
-            #messages.error(request, 'Username OR password is incorrect')
-            return HttpResponse("Error: Usuario o contraseña incorrecta")
+    moneda=None
+    tasa=None
+    codigomoneda=None
+
+
+    if request.method == 'POST':
+        print(request.POST)
+        tasa =request.POST['tasa']
+        moneda =request.POST['moneda']
+        codigomoneda =request.POST['codigomoneda']
+        user3=models.monedas()
+        user3.moneda=moneda
+        user3.tasa=tasa
+        user3.codigomoneda=codigomoneda
+        user3.save()
             #success_message = "Username OR password"
-    
-    return render(request,'agregar_moneda_plataforma.html')
+    return render(request, 'agregar_moneda_plataforma.html')
 
 
 def ConsultarListaMonedas(request):
@@ -194,7 +188,6 @@ def IniciarSesion(request):
     if request.method == 'POST':
         username =request.POST['email']
         password =request.POST['password']
-        print(request.POST)
 
         try:
             user= User.objects.get(username=username)

@@ -33,20 +33,18 @@
     <main>
         <section>
             <p>Agregar moneda</p>
-            <form action="">
+            <form method="POST">
+                {% csrf_token %}
+                <label for="moneda-agregar" class="label-izquierda label-monto_local">Moneda</label>
+                <input type="text" id="moneda-agregar" name="moneda" class="input-izquierda" placeholder="Peso Colombiano" required>
 
-                <label for="email-destinatario" class="label-izquierda label-monto_local">Moneda</label>
-                <input type="text" id="email-destinatario" name="email-destinatario" class="input-izquierda" placeholder="Peso Colombiano" required>
+                <label for="codigo-moneda" class="label-centro label-destinatario">Código</label>
+                <input type="text" id="codigo-moneda" class="input-centro" name="codigomoneda" placeholder="COP" required>
 
-                <label for="tipo-documento" class="label-centro label-destinatario">Código</label>
-                <input type="text" id="tipo-documento" class="input-centro" name="enviar-destinatario" required>
+                <label for="tasa-moneda" class="label-derecha label-fecha">Tasa</label>
+                <input type="number" id="tasa-moneda" name="tasa" class="input-derecha" placeholder="2%" required>
 
-                <label for="numero-documento" class="label-derecha label-fecha">Tasa</label>
-                <input type="number" id="fecha" name="enviar-fecha" class="input-derecha" placeholder="1111111111" required>
-
-                <button type="submit">
-                    Agregar
-                </button>
+                <input type="submit" value="AgregarMonedaPlataforma" class="submit-button"/>
 
             </form>
 
