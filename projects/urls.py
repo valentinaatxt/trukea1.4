@@ -19,5 +19,11 @@ urlpatterns = [
     path('ConsultarListaMonedas/', views.ConsultarListaMonedas,name="ConsultarListaMonedas"),
     path('ClienteListaTransacciones/', views.ClienteLIstaTransacciones,name="ClienteListaTransacciones"),
     #path('ConsultarSaldo/', views.ConsultarSaldo,name="ConsultarSaldo"),
+    path('HabilitarDeshabilitarMoneda/', views.HabilitarDeshabilitarMoneda,name="HabilitarDeshabilitarMoneda"),
+    path('ConsultarListaTrasacciones/', views.ConsultarListaTransacciones,name="ConsultarListaTransaccinoes"),
+    path('Monedas/', views.monedas,name="Monedas"),
+    path('LogoutUser/', views.logoutUser,name="LogoutUser"),
+    # path('Projects/', views.projects,name="Projects"),
+    
 ]
 

@@ -100,7 +100,7 @@ a {
     top: 401px;
 }
 
-button {
+.submit-button {
     width: 297px;
     height: 64px;
     background: var(--fondo-botones);
